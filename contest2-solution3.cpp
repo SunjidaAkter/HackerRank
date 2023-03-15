@@ -39,3 +39,39 @@
 // Sample Output 0
 
 // aaaaa+bcbc-abcabcabcabcabcabcabcabcabc*d
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    string input;
+    cin>>input;
+    string result;
+    int i=0;
+    while(i<input.size()){
+        if(input[i]>='1' && input[i]<='9' ){
+            int n=input[i]-'0';
+            i++;
+            string ch="";
+            while(input[i]>='a'&&input[i]<='z'){
+                ch+=input[i];
+                i++;
+            }
+            string repeat="";
+            for(int j=0;j<n;j++){
+                repeat+=ch;
+            }
+            result+=repeat;
+        }
+        else if(input[i]=='+'||input[i]=='-'||input[i]=='*'||input[i]=='/'){
+            result+=input[i];
+            i++;
+        }
+        else{
+            i++;
+        }
+            
+    }
+    cout<<result<<endl;
+    return 0;
+}
